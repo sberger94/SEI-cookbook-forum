@@ -5,7 +5,7 @@ const passport = require('passport');
 // The root route renders our only view
 router.get('/', function(req, res) {
   // -me- For now:
-  res.render('index', {title: 'Doodoo'})
+  res.redirect('/recipes')
   // Where do you want to go for the root route
   // in the student demo this was res.redirect('/students'), what do you want?
   // This could be a landing page, or just redirect to your main resource page which you'll have an a tag that makes 

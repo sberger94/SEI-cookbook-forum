@@ -8,5 +8,14 @@
   <title><%= title %></title>
 </head>
 <body>
+  <nav>
+    <a href="/recipes">HOME</a>
+    <% if (user) { %>
+      <a href="">ADD RECIPE</a>
+      <a href="">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN</a>
+    <% } %>
+  </nav>
   <main>
     <h1><%= title %></h1>
