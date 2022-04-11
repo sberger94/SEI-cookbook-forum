@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRouter = require('./routes/index');
 // load the env consts
 require('dotenv').config();
 
@@ -17,6 +16,7 @@ const app = express();
 require('./config/database');
 // configure Passport
 require('./config/passport');
+const indexRouter = require('./routes/index');
 
 
 
