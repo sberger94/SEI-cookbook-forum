@@ -1,5 +1,27 @@
 <%- include('../partials/header') %>
 
 <h1>Yummy</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Recipe</th>
+            <th>Rating</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% recipes.forEach(function(r) { %>
+            <tr>
+                <td><a href="/recipes/<%= r._id %>"><%= r.title %></a></td>
+                <% if(r.reviews.rating) { %>
+                    <td><%= r.reviews.rating %></td>
+                <% } else { %>
+                    <td><h5>No Reviews Yet</h5></td>
+                <% } %>
+                <td><%= r.author %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
 
 <%- include('../partials/footer') %>
