@@ -8,6 +8,16 @@ function index(req, res){
     });
 };
 
+function newRecipe(req, res){
+    res.render('recipes/new', {title: 'Add Your Recipe!'})
+}
+
+function create(req, res){
+
+}
+
 module.exports = {
     index,
+    new: newRecipe,
+    create,
 }
