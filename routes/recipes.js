@@ -5,7 +5,7 @@ const isLoggedIn = require('../config/auth');
 
 router.get('/', recipesController.index);
 router.get('/new', recipesController.new);
-
+router.get('/:id', recipesController.show);
 router.post('/', recipesController.create);
 
 module.exports = router;

@@ -9,8 +9,8 @@ function index(req, res){
 };
 
 function newRecipe(req, res){
-    res.render('recipes/new', {title: 'Add Your Recipe!'})
-}
+    res.render('recipes/new', {title: 'Add Your Recipe!'});
+};
 
 function create(req, res){
     console.log(req.body, '<--req.body from create recipe')
@@ -22,11 +22,16 @@ function create(req, res){
         if (err) return res.redirect('/recipes/new');
         console.log(recipe);
         res.redirect(`/recipes/${recipe._id}`);
-    })
-}
+    });
+};
+
+function show(req, res){
+    
+};
 
 module.exports = {
     index,
     new: newRecipe,
     create,
+    show
 }
