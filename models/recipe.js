@@ -13,7 +13,9 @@ const reviewSchema = new Schema({
 
 const recipeSchema = new Schema({
     title: {type: String, required: true},
-    author: {type: Schema.Types.ObjectId, ref: 'User'},
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    userName: String,
+    userAvatar: String,
     prepTime: {type: String, required: true},
     cookTime: {type: String, required: true},
     content: {type: String, required: true},
