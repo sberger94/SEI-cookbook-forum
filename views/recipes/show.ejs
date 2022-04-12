@@ -1,5 +1,17 @@
 <%- include('../partials/header') %>
 
+<section id="rating">
+    <% if (recipe.reviews.length) { %>
+        <% let total = 0 %>
+        <% recipe.reviews.forEach(function(r) { %>
+            <% total += r.rating %>
+        <% }); %>
+        <div id="stars"><%= (total / recipe.reviews.length).toFixed(1) %>(<%= recipe.reviews.length %>)</div>
+    <% } else { %>
+        <div id="no-reviews">No Reviews Yet</div>
+    <% }; %>
+</section>
+
 <section id="show-page">
     <div>Recipe By: </div>
     <div id="author"><%= recipe.userName %></div>
@@ -9,6 +21,14 @@
     </div>
     <div>Directions: </div>
     <div class="directions"><%= recipe.content %></div>
+</section>
+
+<section id="reviews">
+
+</section>
+
+<section id="review-form">
+
 </section>
 
 <%- include('../partials/footer') %>
