@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<section>
+    <div>Recipe By: </div>
+    <div id="author"><%= recipe.userName %></div>
+    <div class="time">
+        <div>Prep Time: </div><div><%= recipe.prepTime %></div>
+        <div>Cook Time: </div><div><%= recipe.cookTime %></div>
+    </div>
+    <div>Directions: </div>
+    <div class="directions"><%= recipe.content %></div>
+</section>
+
+<%- include('../partials/footer') %>

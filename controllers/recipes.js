@@ -26,7 +26,9 @@ function create(req, res){
 };
 
 function show(req, res){
-    
+    Recipe.findById(req.params.id, function(err, recipe){
+        res.render('recipes/show', {title: recipe.title, recipe});
+    });
 };
 
 module.exports = {
@@ -34,4 +36,4 @@ module.exports = {
     new: newRecipe,
     create,
     show
-}
+};
