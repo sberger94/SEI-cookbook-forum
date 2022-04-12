@@ -13,7 +13,12 @@ function newRecipe(req, res){
 }
 
 function create(req, res){
-
+    const recipe = new Recipe(req.body);
+    recipe.save(function (err) {
+        if (err) return res.redirect('/recipes/new');
+        console.log(recipe);
+        res.redirect(`/recipes/${recipe._id}`);
+    })
 }
 
 module.exports = {
