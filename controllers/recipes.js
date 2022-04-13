@@ -26,14 +26,24 @@ function create(req, res){
 };
 
 function show(req, res){
+    console.log(req.params.id, "<--req.params.id for show")
     Recipe.findById(req.params.id, function(err, recipe){
         res.render('recipes/show', {title: recipe.title, recipe});
     });
 };
 
+function deleteRecipe(req, res){
+    console.log(req.params.id, '<--req.params.id for deleteRecipe')
+    Recipe.findByIdAndDelete(req.params.id, function(err, recipe){
+        if (err) return res.redirect('/recipes');
+        res.redirect('/recipes');
+    });
+}
+
 module.exports = {
     index,
     new: newRecipe,
     create,
-    show
+    show,
+    delete: deleteRecipe
 };

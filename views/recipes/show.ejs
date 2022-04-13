@@ -29,6 +29,11 @@
         <% recipe.reviews.forEach(function(r){ %>
             <div class="review-content"><%= r.content %></div>
             <div class="review-user">&mdash;<%= r.userName %></div>
+            <% if (user && user._id.equals(r.user)) { %>
+                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                  <button type="submit">X</button>
+                </form>
+              <% } %>
         <% }); %>
     <% } else { %>
         <div class="no-reviews">No Reviews Yet</div>
@@ -53,6 +58,14 @@
             <h5>Log in to write a review</h5>
         <% } %>
     </form>
+</section>
+
+<section id="edit-delete-recipe">
+    <% if (user && user._id.equals(recipe.user)) { %>
+        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+          <button type="submit">DELETE RECIPE</button>
+        </form>
+    <% } %>
 </section>
 
 <%- include('../partials/footer') %>
