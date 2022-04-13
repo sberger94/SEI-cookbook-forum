@@ -8,7 +8,7 @@
         <% }); %>
         <div id="stars"><%= (total / recipe.reviews.length).toFixed(1) %>(<%= recipe.reviews.length %>)</div>
     <% } else { %>
-        <div id="no-reviews">No Reviews Yet</div>
+        <div class="no-reviews"></div>
     <% }; %>
 </section>
 
@@ -23,12 +23,36 @@
     <div class="directions"><%= recipe.content %></div>
 </section>
 
+<h3>Reviews</h3>
 <section id="reviews">
-
+    <% if (recipe.reviews.length) { %>
+        <% recipe.reviews.forEach(function(r){ %>
+            <div class="review-content"><%= r.content %></div>
+            <div class="review-user">&mdash;<%= r.userName %></div>
+        <% }); %>
+    <% } else { %>
+        <div class="no-reviews">No Reviews Yet</div>
+    <% } %>
 </section>
 
 <section id="review-form">
-
+    <form method="POST" action="/recipes/<%= recipe._id %>/reviews">     
+        <% if (user) { %>
+          <label>Review: <textarea name="content"></textarea></label>
+          <label>Rating: 
+              <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+          </label>
+          <input type="submit" value="Add Review">
+        <% } else { %>
+            <h5>Log in to write a review</h5>
+        <% } %>
+    </form>
 </section>
 
 <%- include('../partials/footer') %>
