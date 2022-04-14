@@ -23,11 +23,24 @@ function deleteReview(req, res){
         review.remove();
         recipe.save(function(err){
             res.redirect(`/recipes/${recipe._id}`);
-        })
-    })
+        });
+    });
+}
+
+function update(req, res){
+    Recipe.findOne({'reviews._id' : req.params.id}, function(err, recipe){
+        const review = recipe.reviews.id(req.params.id);
+        if(!review.user.equals(req.user._id)) return res.redirect(`/recipes/${recipe._id}`);
+        review.content = req.body.content;
+        review.rating = req.body.rating;
+        recipe.save(function(err){
+            res.redirect(`/recipes/${recipe._id}`);
+        });
+    });
 }
 
 module.exports = {
     create,
     delete: deleteReview,
+    update
 };

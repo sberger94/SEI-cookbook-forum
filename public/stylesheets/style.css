@@ -6,6 +6,7 @@
 body {
   margin: 0;
   height: 100vh;
+  text-align: center;
 }
 
 .banner{
@@ -27,17 +28,29 @@ body {
   transform: translate(-50%, -50%);
 }
 
-h1 {
-  text-align: center;
-}
-
 table {
   margin: auto;
 }
 
 td {
-  text-align: center;
+  
   padding: 0px 5px;
+}
+
+#rating {
+  
+  font-size: 12px;
+  margin: -15px 0 15px 0;
+}
+
+input, textarea {
+  display: block;
+  margin: 10px auto;
+
+}
+
+input[type=number]{
+  display: inline;
 }
 
 nav {
@@ -57,4 +70,6 @@ nav > a {
 nav > a:hover{
   color: #ECFFB5;
 }
+
+
 
