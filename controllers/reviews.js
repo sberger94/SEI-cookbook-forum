@@ -3,8 +3,6 @@ const Recipe = require('../models/recipe');
 function create(req, res){
     console.log('hit the review controller')
     Recipe.findById(req.params.id, function(err, recipe){
-        console.log(req.body, '<--req.body from review create function')
-        console.log(recipe, '<--recipe from review controller')
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;

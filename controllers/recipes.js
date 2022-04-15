@@ -13,7 +13,6 @@ function newRecipe(req, res){
 };
 
 function create(req, res){
-    console.log(req.body, '<--req.body from create recipe')
     const recipe = new Recipe(req.body);
     recipe.user = req.user._id;
     recipe.userName = req.user.name;
@@ -26,14 +25,12 @@ function create(req, res){
 };
 
 function show(req, res){
-    console.log(req.params.id, "<--req.params.id for show")
     Recipe.findById(req.params.id, function(err, recipe){
         res.render('recipes/show', {title: recipe.title, recipe});
     });
 };
 
 function deleteRecipe(req, res){
-    console.log(req.params.id, '<--req.params.id for deleteRecipe')
     Recipe.findByIdAndDelete(req.params.id, function(err, recipe){
         if (err) return res.redirect('/recipes');
         res.redirect('/recipes');

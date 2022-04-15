@@ -9,7 +9,6 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOne({googleId: profile.id}).then(async function(user) {
-      console.log(user, '<----this user from google')
       if(user) return cb(null, user);
       try {
         user = await User.create({
