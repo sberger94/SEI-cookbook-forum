@@ -13,14 +13,14 @@
 </section>
 
 <section id="show-page">
-    <div>Recipe By: </div>
-    <div id="author"><%= recipe.userName %></div>
-    <div class="time">
-        <div>Prep Time: </div><div><%= recipe.prepTime %></div>
-        <div>Cook Time: </div><div><%= recipe.cookTime %></div>
+    <div id="author">Recipe By: <%= recipe.userName %></div>
+    <div id="time">
+        <div>Prep Time: <%= recipe.prepTime %> mins</div>
+        <div>Cook Time: <%= recipe.cookTime %> mins</div>
     </div>
-    <div>Directions: </div>
-    <div class="directions"><%= recipe.content %></div>
+    <div id="directions"><strong>Directions: </strong>
+        <div><%= recipe.content %></div>
+    </div>
 </section>
 
 <h3>Reviews</h3>
@@ -31,7 +31,7 @@
             <div class="review-user">&mdash;<%= r.userName %></div>
             <% if (user && user._id.equals(r.user)) { %>
                 <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                  <button type="submit">X</button>
+                  <button class="delete" type="submit">X</button>
                 </form>
                 <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
                     <input type="text" name="content" value="<%= r.content %>">
@@ -42,7 +42,7 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    <button type="submit">Update Review</button>
+                    <button class="update" type="submit">Update Review</button>
                 </form>
               <% } %>
         <% }); %>
