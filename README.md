@@ -1,51 +1,41 @@
-# The Gourmand's Horizon
+# The Common Kitchen
 
-A user-contributed cookbook for food lovers.
+### A user-contributed cookbook for food lovers.
 
 ## Introduction
 
+A simple forum for posting, viewing, and rating recipes from other users. 
+
 ## Screenshots
+
+Home page
+![home page](public/images/homepage.jpeg)
+
+ERD
+![ERD](public/images/erd.jpeg)
 
 ## Technologies Used
 
+- **Node/Express** - Used to handle HTTP functionality with Javascript. Node and Express allow JS to handle HTTP requests and allow the implementation of middleware functions.
+
+- **MongoDB/Mongoose** - MongoDB was used to organize data into documents defined with key-value pairs. Mongoose allows the embedding of different data Schema within others, for example the reviews are embedded within the recipe schema. The combination of both creates a flexible database suited for storing data that can vary in its structure case by case.
+
+- **OAuth** - OAuth is an authentication framework used to verify users and restrict access to certain actions to specific users. Only logged-in users are able to add recipes to the database, and users are only allowed to edit or delete content posted by themselves.
+
 ## Getting Started
+
+A simple project-planning board was created with [Trello](https://trello.com/b/myL61uju/project-2-planning).
+
+The project is deployed with Heroku. [Click Here](https://sei-cookbook-forum.herokuapp.com/recipes) to check it out!
 
 ## Next Steps
 
-################################
+I hope to improve the UI and functionality with the following:
 
-# passport-boilerplate
+- Ability to add additional input fields to organize recipe instructions into an ordered list
 
+- Star icons to display rating in a common format
 
-This is your passport boilerplate.
+- Input for ingredients and common measurements
 
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
-
-
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin master` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin master`
-
-#### Setup your login
-
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
-
-#### Make a commit 
-
-```git commit -m "setup up oauth and User Model"```
+- Ability to add photos of food both in the recipes and reviews
