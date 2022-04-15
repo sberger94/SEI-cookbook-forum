@@ -16,6 +16,10 @@ ERD
 
 ![ERD](public/images/erd.jpeg)
 
+Wireframe
+
+![wireframe](public/images/project2wireframe.jpeg)
+
 ## Technologies Used
 
 - **Node/Express** - Used to handle HTTP functionality with Javascript. Node and Express allow JS to handle HTTP requests and allow the implementation of middleware functions.
