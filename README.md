@@ -9,9 +9,11 @@ A simple forum for posting, viewing, and rating recipes from other users.
 ## Screenshots
 
 Home page
+
 ![home page](public/images/homepage.jpeg)
 
 ERD
+
 ![ERD](public/images/erd.jpeg)
 
 ## Technologies Used
